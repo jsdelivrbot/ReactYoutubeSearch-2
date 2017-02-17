@@ -1,5 +1,9 @@
-//import React from 'react';
+import React from 'react';
+import ReactDom from 'react-dom';
 
-const App = function() {
+const App = () => {
   return <div> HI! </div>;
 }
+
+
+ReactDom.render(<App/>, document.querySelector('.container'));
