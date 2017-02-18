@@ -6,7 +6,7 @@ export default class VideoList extends Component{
 
   _turnVideosIntoComponents(){
     return this.props.videos.map((video)=>{
-                   return <VideoListItem  video={video} key={video.snippet.channelId}/>
+                   return <VideoListItem  video={video} key={video.etag}/>
             });
 
   }
@@ -14,9 +14,6 @@ export default class VideoList extends Component{
 
 
   render(){
-     //let videoItems = this._turnVideosIntoComponents();
-      //console.log(videoItems);
-
     return(
       <ul className="col-md-4 list-group">
         {this._turnVideosIntoComponents()}
