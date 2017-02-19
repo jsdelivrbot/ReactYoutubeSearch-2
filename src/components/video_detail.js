@@ -2,23 +2,29 @@ import React,{Component} from 'react';
 
 
 export default class VideoDetail extends Component{
-  constructor(props){
-    super(props);
-
-    this.videoId = this.props.video.id.videoId;
-    this.url = `http://www.youtube.com/embed/${this.videoId}`;
-  }
-
+//
   render(){
+   if (!this.props.video){
+     return (<span>Loading...</span>);
+   }
+   else{
+
+    let videoId = this.props.video.id.videoId;
+    let url = `http://www.youtube.com/embed/${videoId}`;
     return(
-      <div className="embed-responsive embed-responsive-16by9">
-        <iframe className="embed-responsive-item" src={this.url}> </iframe>
-      </div>
-      <div className="details">
-        <div>{video.snippet.title}</div>
-        <div>{video.snippet.description}</div>
-      </div>
+       <div>
+         <div className="embed-responsive embed-responsive-16by9">
+          <iframe className="embed-responsive-item" src={url}> </iframe>
+         </div>
+         <div className="details">
+           <div>{this.props.video.snippet.title}</div>
+           <div>{this.props.video.snippet.description}</div>
+         </div>
+       </div>
     );
+   }
   }
 
 }
+
+
