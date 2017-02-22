@@ -10,7 +10,7 @@ class SearchBar extends Component{
   }
   render(){
     return (
-      <div>
+      <div className="search-bar">
         <p>Value of the input: {this.state.term}</p>
         <input
           placeholder={this.state.term}

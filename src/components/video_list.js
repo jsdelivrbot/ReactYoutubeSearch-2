@@ -15,7 +15,7 @@ export default class VideoList extends Component{
 
   render(){
     return(
-      <ul className="col-md-4 list-group">
+      <ul className="col-md-12  list-group">
         {this._turnVideosIntoComponents()}
       </ul>
     );
