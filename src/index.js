@@ -6,8 +6,9 @@ import YTSearch from 'youtube-api-search';
 import VideoList from './components/video_list';
 import SearchBar from './components/search_bar';
 import VideoDetail from './components/video_detail';
+import Secret from './secrets/secrets';
 
-const API_KEY =  "API";
+const API_KEY =  new Secret().api();
 
 
 class App extends Component{
@@ -18,7 +19,10 @@ class App extends Component{
 
     //Methods
     this.fetchData("surfboards");
+
   }
+
+
   fetchData(term){
     YTSearch({key: API_KEY, term: term}, (data) => {
         this.setState({
