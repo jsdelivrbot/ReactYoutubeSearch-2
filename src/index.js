@@ -17,10 +17,10 @@ class App extends Component{
     this.state= {videos: [], selectedVideo: null};
 
     //Methods
-    this._fetchData();
+    this.fetchData("surfboards");
   }
-  _fetchData(){
-    YTSearch({key: API_KEY, term: "surfboards"}, (data) => {
+  fetchData(term){
+    YTSearch({key: API_KEY, term: term}, (data) => {
         this.setState({
           videos:data,
           selectedVideo: data[0]
@@ -31,10 +31,18 @@ class App extends Component{
   render(){
 
      return(
-       <div>
-         <SearchBar />
-         <VideoDetail video={this.state.selectedVideo} />
-         <VideoList onVideoSelect={(selectedVideo)=> this.setState({selectedVideo})} videos={this.state.videos} />
+       <div className="container-fluid">
+         <div className="row">
+           <SearchBar onSearchTermChange={(term) => this.fetchData(term)} />
+         </div>
+         <div className="row">
+           <div className="col-sm-8">
+             <VideoDetail video={this.state.selectedVideo} />
+           </div>
+           <div className="col-sm-4">
+             <VideoList onVideoSelect={(selectedVideo)=> this.setState({selectedVideo})} videos={this.state.videos} />
+           </div>
+         </div>
        </div>
      );
   }

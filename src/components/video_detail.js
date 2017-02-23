@@ -12,7 +12,7 @@ export default class VideoDetail extends Component{
     let videoId = this.props.video.id.videoId;
     let url = `http://www.youtube.com/embed/${videoId}`;
     return(
-       <div>
+       <div className="video-detail">
          <div className="embed-responsive embed-responsive-16by9">
           <iframe className="embed-responsive-item" src={url}> </iframe>
          </div>
