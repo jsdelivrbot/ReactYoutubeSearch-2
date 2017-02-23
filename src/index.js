@@ -1,3 +1,6 @@
+// LOADASH
+import _ from "lodash";
+
 import React ,{Component}from 'react';
 import ReactDom from 'react-dom';
 // YOUTUBE Library
@@ -34,11 +37,12 @@ class App extends Component{
   }
 
   render(){
-
+    //lodash, its main purpose is to delay the search so it won't be so agressive
+    const videoSearch = _.debounce((term)=>{ this.fetchData(term) } , 300);
      return(
        <div className="container-fluid">
          <div className="row">
-           <SearchBar onSearchTermChange={(term) => this.fetchData(term)} />
+           <SearchBar onSearchTermChange={videoSearch} />
          </div>
          <div className="row">
            <div className="col-sm-8">
